@@ -1,4 +1,4 @@
-#The requirements of the Cinema ticket sale system
+# The requirements of the Cinema ticket sale system
 
 * Ability to define and manage movies
 * Ability to define and manage cinemas
