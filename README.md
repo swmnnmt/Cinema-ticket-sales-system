@@ -1,4 +1,4 @@
-#Cinema ticket sale system
+# Cinema ticket sale system
 This project is a cinema tickets reservation system made with Django and Sqlite.
 
 ## Features of this system
