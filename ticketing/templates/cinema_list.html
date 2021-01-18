@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فهرست سینما ها</title>
+</head>
+<body>
+<h1>سامانه فروش بلیط سینما</h1>
+<h3>فهرست سالن های سینما</h3>
+<a href="{% url "movie_list" %}">
+    فهرست فیلم ها
+</a>
+{% if cinema_list %}
+    <p style="color: green">
+        تعداد {{ count }} سینما وجود دارد
+    </p>
+    <ul>
+        {% for cinema in cinema_list %}
+            <li>
+                {{ cinema }}
+            </li>
+        {% endfor %}
+
+    </ul>
+{% else %}
+    <p style="color: maroon">
+        متاسفانه هیچ سینمایی موجود نیست
+    </p>
+{% endif %}
+
+</body>
+</html>
