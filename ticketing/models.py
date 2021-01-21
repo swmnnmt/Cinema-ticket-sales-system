@@ -13,6 +13,7 @@ class Movie(models.Model):
     year = models.IntegerField(verbose_name='سال تولید')
     length = models.IntegerField(verbose_name='مدت زمان')
     description = models.TextField(verbose_name='توضیح فیلم')
+    poster = models.ImageField(verbose_name='پوستر', upload_to='movie_posters/', null=True)
 
     def __str__(self):
         return self.name
@@ -31,9 +32,10 @@ class Cinema(models.Model):
     capacity = models.IntegerField(verbose_name='گنجایش')
     phone = models.CharField(max_length=11, blank=True, verbose_name='تلفن')
     address = models.TextField(verbose_name='آدرس')
+    image = models.ImageField(verbose_name='تصویر', upload_to='cinema_images/', null=True)
 
     def __str__(self):
-        return '{} - {}'.format(self.name, self.city)
+        return '{}'.format(self.name)
 
 
 class ShowTime(models.Model):
