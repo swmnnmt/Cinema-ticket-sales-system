@@ -9,10 +9,9 @@ def movie_list(request):
     # 2- some code like authentications
     # 3- render responses
     context = {
-        'movie_list': movies,
-        'count': len(movies),
+        'movies': movies,
     }
-    return render(request, 'movie_list.html', context)
+    return render(request, 'ticketing/movie_list.html', context)
 
 
 def cinema_list(request):
@@ -21,7 +20,6 @@ def cinema_list(request):
     # 2- some code like authentications
     # 3- render responses
     context = {
-        'cinema_list': cinemas,
-        'count': len(cinemas),
+        'cinemas': cinemas,
     }
-    return render(request, 'cinema_list.html', context)
+    return render(request, 'ticketing/cinema_list.html', context)
