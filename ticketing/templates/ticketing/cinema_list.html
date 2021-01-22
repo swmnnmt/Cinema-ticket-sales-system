@@ -40,13 +40,15 @@
                 <ul class="item-list">
                     {% for cinema in cinemas %}
                         <li>
-                            <i class="fas fa-building"></i>
-                            {{ cinema }}
-                            {% if cinema.city %}
-                                <small class="text-muted">
-                                    ({{ cinema.city }})
-                                </small>
-                            {% endif %}
+                            <a href="{% url "cinema_details" cinema_id=cinema.cinema_code %}">
+                                <i class="fas fa-building"></i>
+                                {{ cinema }}
+                                {% if cinema.city %}
+                                    <small class="text-muted">
+                                        ({{ cinema.city }})
+                                    </small>
+                                {% endif %}
+                            </a>
                         </li>
                     {% endfor %}
                 </ul>

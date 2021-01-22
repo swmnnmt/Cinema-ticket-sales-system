@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
@@ -22,3 +23,8 @@ urlpatterns = [
     # if ticketing is at the first of url go to urls file in ticketing app
     path('ticketing/', include('ticketing.urls'))
 ]
+# following code will serve image files when we are in debug mode in  localhost
+if settings.DEBUG:
+    from django.conf.urls.static import static
+
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
