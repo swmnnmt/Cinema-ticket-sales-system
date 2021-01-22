@@ -1,7 +1,6 @@
-from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
-from ticketing.models import Movie, Cinema
+from ticketing.models import Movie, Cinema, ShowTime
 
 
 def movie_list(request):
@@ -30,9 +29,9 @@ def movie_details(request, movie_id):
     # if object exists return it otherwise 404
     movie = get_object_or_404(Movie, pk=movie_id)
     context = {
-        'movie':movie
+        'movie': movie
     }
-    return render(request,'ticketing/movie_details.html',context)
+    return render(request, 'ticketing/movie_details.html', context)
 
 
 def cinema_details(request, cinema_id):
@@ -41,4 +40,12 @@ def cinema_details(request, cinema_id):
     context = {
         'cinema': cinema
     }
-    return render(request,'ticketing/cinema_details.html',context)
+    return render(request, 'ticketing/cinema_details.html', context)
+
+
+def showtime_list(request):
+    showtimes = ShowTime.objects.all().order_by('start_time')
+    context = {
+        'showtimes': showtimes
+    }
+    return render(request, 'ticketing/showtime_list.html', context)
