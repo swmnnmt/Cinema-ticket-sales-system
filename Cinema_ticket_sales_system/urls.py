@@ -21,7 +21,8 @@ urlpatterns = [
     # if admin is at the first of url go to default django admin
     path('admin/', admin.site.urls),
     # if ticketing is at the first of url go to urls file in ticketing app
-    path('ticketing/', include('ticketing.urls'))
+    path('ticketing/', include('ticketing.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 # following code will serve image files when we are in debug mode in  localhost
 if settings.DEBUG:
