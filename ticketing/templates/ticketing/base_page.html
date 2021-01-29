@@ -29,7 +29,45 @@
             </h4>
         </div>
         <div class="col-6 text-left">
-            {% block toolbar_buttons %}{% endblock %}
+            {% block toolbar_buttons %}
+                <a class="btn btn-light py-1 px-2" href="{% url "movie_list" %}">
+                    <i class="fas fa-film"></i>
+                    فیلم‌ها
+                </a>
+                <a class="btn btn-light py-1 px-2" href="{% url "cinema_list" %}">
+                    <i class="fas fa-building"></i>
+                    سینماها
+                </a>
+                <a class="btn btn-success py-1 px-2" href="{% url "showtime_list" %}">
+                    <i class="fas fa-ticket-alt"></i>
+                    خرید بلیت
+                </a>
+
+                {% if user.is_authenticated %}
+                    <div class="dropdown">
+                        <a class="btn btn-primary dropdown-toggle py-1 px-2" id="user-button" href="#"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                            {{ user.get_full_name }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="user-button">
+                            <a class="dropdown-item" href="#">
+                                <i class="far fa-address-card"></i>
+                                نمایه کاربری
+                            </a>
+                            <a class="dropdown-item" href="{% url "accounts:logout" %}">
+                                <i class="fas fa-sign-out-alt"></i>
+                                خروج
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <a class="btn btn-primary py-1 px-2 mr-3" href="{% url "accounts:login" %}">
+                        <i class="fas fa-sign-in-alt"></i>
+                        ورود
+                    </a>
+                {% endif %}
+            {% endblock %}
         </div>
     </div>
 

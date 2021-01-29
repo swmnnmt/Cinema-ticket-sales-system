@@ -1,15 +1,10 @@
 {% extends "ticketing/base_page.html" %}
+
 {% block title %}{{ cinema.name }}{% endblock %}
+
 {% block toolbar_title %}
     <i class="fas fa-building"></i>
     {{ cinema.name }}
-{% endblock %}
-
-{% block toolbar_buttons %}
-    <a class="btn btn-warning py-1 px-2" href="{% url "cinema_list" %}">
-        <i class="fas fa-list"></i>
-        فهرست سینماها
-    </a>
 {% endblock %}
 
 {% block main_content %}
