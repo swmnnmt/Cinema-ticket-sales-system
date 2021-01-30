@@ -1,13 +1,11 @@
 <!--loads static file in settings.py-->
 {% load static %}
 <!DOCTYPE html>
-<html lang="fa">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>
-        {% block title%} {% endblock %}
-    </title>
-    <!--define the css file paths (the sequence is important because we want to override main.css on 2 css files like bootstrap and font-awesome)-->
+    <title>{% block title %}{% endblock %}</title>
+    {% block extra_headers %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/bootstrap.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/font-awesome.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/main.css" %}">
@@ -42,7 +40,6 @@
                     <i class="fas fa-ticket-alt"></i>
                     خرید بلیت
                 </a>
-
                 {% if user.is_authenticated %}
                     <div class="dropdown">
                         <a class="btn btn-primary dropdown-toggle py-1 px-2" id="user-button" href="#"
@@ -51,7 +48,7 @@
                             {{ user.get_full_name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="user-button">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{% url "accounts:profile_details" %}">
                                 <i class="far fa-address-card"></i>
                                 نمایه کاربری
                             </a>
@@ -70,14 +67,11 @@
             {% endblock %}
         </div>
     </div>
-
     {% block main_content %}{% endblock %}
-
     <div class="row align-content-center" id="footer">
         <div class="col text-center">
             <span>
                 ما را در شبکه‌های اجتماعی دنبال کنید.
-
                 <a class="social-media-icon" href="https://facebook.com/#">
                     <i class="fab fa-facebook"></i>
                 </a>
@@ -94,10 +88,10 @@
         </div>
     </div>
 </div>
-<!--define the js file paths (the sequence is important because we want to override main.js on 3 js files like jquery, bootstrap and font-awesome)-->
 <script src="{% static "ticketing/js/jquery-3.4.0.min.js" %}"></script>
 <script src="{% static "ticketing/js/bootstrap.bundle.js" %}"></script>
 <script src="{% static "ticketing/js/font-awesome.js" %}"></script>
 <script src="{% static "ticketing/js/main.js" %}"></script>
+{% block extra_js %}{% endblock %}
 </body>
 </html>
