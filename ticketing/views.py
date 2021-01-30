@@ -72,7 +72,7 @@ def showtime_details(request, showtime_id):
         except Exception as e:
             context['error'] = str(e)
         else:
-            return HttpResponseRedirect(reverse('ticketing:ticket_details', kwargs={'ticket_id': ticket.id}))
+            return HttpResponseRedirect(reverse('ticket_details', kwargs={'ticket_id': ticket.id}))
     return render(request, 'ticketing/showtime_details.html', context)
 
 
