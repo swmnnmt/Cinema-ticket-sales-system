@@ -48,7 +48,6 @@ body {
     display: inline-block;
 }
 
-#toolbar .dropdown-item,
 #toolbar .dropdown-item-text {
     font-size: 0.7em;
 }
