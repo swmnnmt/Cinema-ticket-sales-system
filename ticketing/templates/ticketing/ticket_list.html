@@ -16,7 +16,7 @@
                 <div class="row px-2">
                     {% for ticket in tickets %}
                         <div class="col-3 px-2 py-2">
-                            <a href="{% url "ticketing:ticket_details" ticket_id=ticket.id %}"
+                            <a href="{% url "ticket_details" ticket_id=ticket.id %}"
                                class="ticket-box btn btn-light text-muted text-right">
                                 <span>
                                     <i class="fas fa-film"></i>
