@@ -9,17 +9,6 @@
     فهرست سانس‌های نمایش
 {% endblock %}
 
-{% block toolbar_buttons %}
-<a class="btn btn-light py-1 px-2" href="{% url "movie_list" %}">
-    <i class="fas fa-film"></i>
-    فیلم‌ها
-</a>
-<a class="btn btn-light py-1 px-2" href="{% url "cinema_list" %}">
-    <i class="fas fa-building"></i>
-    سینماها
-</a>
-
-{% endblock %}
 {% block main_content %}
     <div class="row">
         <div class="col py-3">
@@ -27,7 +16,7 @@
                 <div class="row px-2">
                     {% for showtime in showtimes %}
                         <div class="col-3 px-2 py-2">
-                            <a href="#"
+                            <a href="{% url "showtime_details" showtime_id=showtime.id %}"
                                class="showtime-box btn
                                 {% if showtime.status != showtime.SALE_OPEN %}
                                     disabled btn-outline-secondary

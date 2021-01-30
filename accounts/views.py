@@ -1,4 +1,5 @@
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -13,7 +14,7 @@ def login_view(request):
         if user is not None:
             # Successful login
             login(request, user)
-            redirect_url = next_url if next_url else reverse('ticketing:showtime_list')
+            redirect_url = next_url if next_url else reverse('showtime_list')
             return HttpResponseRedirect(redirect_url)
         else:
             # undefined user or wrong password
@@ -29,3 +30,12 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('accounts:login'))
+
+
+@login_required
+def profile_details(request):
+    profile = request.user.profile
+    context = {
+        'profile': profile
+    }
+    return render(request, 'accounts/profile_details.html', context)
