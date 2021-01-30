@@ -2,3 +2,5 @@
 env/
 
 *.sqlite3
+
+ticketing/__pycache__/
