@@ -6,4 +6,4 @@ from accounts.models import Payment
 class PaymentForm(forms.ModelForm):
     class Meta:
         model = Payment
-        fields = ['profile', 'amount', 'transaction_code']
+        fields = ['amount', 'transaction_code']
