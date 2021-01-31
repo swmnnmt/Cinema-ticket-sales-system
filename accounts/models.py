@@ -11,7 +11,7 @@ class Profile(models.Model):
         verbose_name = 'نمایه کاربری'
         verbose_name_plural = 'نمایه کاربری'
 
-    user = models.OneToOneField(verbose_name='حساب کاربری',to=User, on_delete=models.CASCADE)
+    user = models.OneToOneField(verbose_name='حساب کاربری', to=User, on_delete=models.CASCADE)
     # important fields that are stored in User model:
     # first_name, last_name, email, date_joined
     mobile = models.CharField(verbose_name='تلفن همراه', max_length=11)
@@ -42,3 +42,21 @@ class Profile(models.Model):
         self.balance -= amount
         self.save()
         return True
+
+
+class Payment(models.Model):
+    """
+    Represents a payment done by a user
+    """
+
+    class Meta:
+        verbose_name = 'پرداخت'
+        verbose_name_plural = 'پرداخت'
+
+    profile = models.ForeignKey(verbose_name='کاربر',to=Profile, on_delete=models.CASCADE)
+    amount = models.PositiveIntegerField(verbose_name='مبلغ')
+    transaction_time = models.DateTimeField(verbose_name='زمان تراکنش', auto_now_add=True)
+    transaction_code = models.CharField(verbose_name='رسید تراکنش', max_length=30)
+
+    def __str__(self):
+        return '{} تومان افزایش اعتبار برای {}'.format(self.amount, self.profile)
