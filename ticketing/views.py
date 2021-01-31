@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
+from ticketing.forms import ShowTimeSearchForm
 from ticketing.models import Movie, Cinema, ShowTime, Ticket
 
 
@@ -47,9 +48,27 @@ def cinema_details(request, cinema_id):
 
 
 def showtime_list(request):
-    showtimes = ShowTime.objects.all().order_by('start_time')
+    search_form = ShowTimeSearchForm(request.GET)
+    showtimes = ShowTime.objects.all()
+    if search_form.is_valid():
+        showtimes = showtimes.filter(movie__name__contains=search_form.cleaned_data['movie_name'])
+        if search_form.cleaned_data['sale_is_open']:
+            showtimes = showtimes.filter(status=ShowTime.SALE_OPEN)
+        if search_form.cleaned_data['movie_length_min'] is not None:
+            showtimes = showtimes.filter(movie__length__gte=search_form.cleaned_data['movie_length_min'])
+        if search_form.cleaned_data['movie_length_max'] is not None:
+            showtimes = showtimes.filter(movie__length__lte=search_form.cleaned_data['movie_length_max'])
+        if search_form.cleaned_data['cinema'] is not None:
+            showtimes = showtimes.filter(cinema=search_form.cleaned_data['cinema'])
+        min_price, max_price = search_form.get_price_boundaries()
+        if min_price is not None:
+            showtimes = showtimes.filter(price__gte=min_price)
+        if max_price is not None:
+            showtimes = showtimes.filter(price__lte=max_price)
+    showtimes = showtimes.order_by('start_time')
     context = {
-        'showtimes': showtimes
+        'showtimes': showtimes,
+        'search_form':search_form
     }
     return render(request, 'ticketing/showtime_list.html', context)
 
@@ -72,7 +91,7 @@ def showtime_details(request, showtime_id):
         except Exception as e:
             context['error'] = str(e)
         else:
-            return HttpResponseRedirect(reverse('ticketing:ticket_details', kwargs={'ticket_id': ticket.id}))
+            return HttpResponseRedirect(reverse('ticket_details', kwargs={'ticket_id': ticket.id}))
     return render(request, 'ticketing/showtime_details.html', context)
 
 
