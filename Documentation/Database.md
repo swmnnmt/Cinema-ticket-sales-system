@@ -1,2 +1,2 @@
 ##Database UML
-![alt text](Documentation/Images/Database Diagram.jpg)
+![alt text](Images/Database Diagram.jpg)
