@@ -1,10 +1,7 @@
 .idea/
 env/
-
 *.sqlite3
-
 ticketing/__pycache__/
 accounts/__pycache__/
 Cinema_ticket_sales_system/__pycache__/
-
 *.pyc
