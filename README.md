@@ -11,6 +11,7 @@ also he can control the users and the whole system.
 In this section, we will analyze and design the project
 
 * [Requirements](Documentation/REQUIRMENTS.md)
+* [Database](Documentation/Database.md)
 
 ## Developers
 
