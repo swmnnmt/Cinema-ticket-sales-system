@@ -10,4 +10,4 @@ Enter the `username` & `password` and clicks `login` | Validates entered `userna
 
 ## Admin Controls
 * Admin can Create, Read, Update and Delete **User Profiles**, **Tickets**, **Showtimes**, **Cinemas** and **Movies**.
-![img.png](Admin_panel.png)
+![img.png](Images/Admin_panel.png)
