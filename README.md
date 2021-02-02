@@ -13,10 +13,10 @@ also he can control the users and the whole system.
 In this section, we will analyze and design the project
 
 * [Requirements](Documentation/REQUIRMENTS.md)
-* [Database Diagram](Documentation/Database.md)
+* [Database](Documentation/Database_Diagram.md)
 * [Management Scenario](Documentation/SCENARIO_manager.md)
 * [Customer Scenario](Documentation/SCENARIO_customer.md)
-* [Use Case Diagram](Documentation/UseCase.md)
+* [Use Case Diagram](Documentation/UseCase_Diagram.md)
 
 ## Developers
 
