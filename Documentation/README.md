@@ -1,9 +1,9 @@
 ## Ducumentation Directory Contents
 
-* [Requirements](Documentation/REQUIRMENTS.md)
-* [Management Scenario](Documentation/SCENARIO_manager.md)
-* [Customer Scenario](Documentation/SCENARIO_customer.md)
-* [Use Case Diagram](Documentation/UseCase_Diagram.md)
-* [Database](Documentation/Database_Diagram.md)
-* [Activity Diagram](Documentation/Activity_Diagram.md)
-* [Class Diagram](Documentation/Class_Diagram.md)
+* [Requirements](REQUIRMENTS.md)
+* [Management Scenario](SCENARIO_manager.md)
+* [Customer Scenario](SCENARIO_customer.md)
+* [Use Case Diagram](UseCase_Diagram.md)
+* [Database](Database_Diagram.md)
+* [Activity Diagram](Activity_Diagram.md)
+* [Class Diagram](Class_Diagram.md)
