@@ -18,6 +18,7 @@ In this section, we will analyze and design the project
 * [Customer Scenario](Documentation/SCENARIO_customer.md)
 * [Use Case Diagram](Documentation/UseCase_Diagram.md)
 * [Class Diagram](Documentation/Class_Diagram.md)
+* [Activity Diagram](Documentation/Activity_Diagram.md)
 
 ## Developers
 
