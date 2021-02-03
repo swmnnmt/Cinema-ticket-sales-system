@@ -1,4 +1,4 @@
-## Ducumentation Directory Contents
+## Documentation Directory Contents
 
 * [Requirements](REQUIRMENTS.md)
 * [Management Scenario](SCENARIO_manager.md)
