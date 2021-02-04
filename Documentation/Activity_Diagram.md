@@ -4,7 +4,7 @@
 
 ## Create Movie
 
-![Image](Images/Create_Cinema_Activity_Diagram.jpg)
+![Image](Images/Create_Movie_Activity_Diagram.jpg)
 
 ## Create Cinema
 
